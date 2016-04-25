@@ -1,19 +1,14 @@
 <%@ page import="java.sql.Date" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.Period" %>
+<%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%!
-    private int getAge(ResultSet rs, String field) {
+    private int getAge(Map map, String field) {
         // TODO: 4/25/2016 подумать как обозначить тип поля
-        try {
-            return getAge(rs.getDate(field));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return getAge((Date) map.get(field));
     }
 
     private int getAge(Date date) {
@@ -47,7 +42,7 @@
             <td>${row.first_name}</td>
             <td>${row.last_name}</td>
                 <%--<td>${row.dob}</td>--%>
-            <td><%=getAge((ResultSet) pageContext.getAttribute("row"), "dob")%></td>
+            <td><%=getAge((Map) pageContext.getAttribute("row"), "dob")%></td>
         </tr>
     </c:forEach>
 </table>
