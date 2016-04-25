@@ -1,0 +1,29 @@
+apply plugin: "java"
+apply plugin: "war"
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+version = "1.0-SNAPSHOT"
+
+dependencies {
+    compile 'com.h2database:h2:+'
+    compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:+'
+    compile 'org.glassfish.web:javax.servlet.jsp.jstl:+'
+
+    providedCompile 'org.apache.tomcat:tomcat-api:+'
+    providedCompile 'org.apache.tomcat:tomcat-jsp-api:+'
+
+    compile 'org.projectlombok:lombok:+'
+
+    compile 'org.slf4j:slf4j-api:+'
+    compile 'ch.qos.logback:logback-classic:+'
+
+    testCompile 'junit:junit:+'
+}
