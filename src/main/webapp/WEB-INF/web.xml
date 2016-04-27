@@ -3,9 +3,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-  version="4.0" metadata-complete="true">
+  version="4.0">
 
-    <description>MySQL Test App</description>
     <resource-ref>
         <description>DB Connection</description>
         <res-ref-name>jdbc/TestDB</res-ref-name>
@@ -14,7 +13,6 @@
     </resource-ref>
 
    <security-constraint>
-      <display-name>Example Security Constraint - part 1</display-name>
       <web-resource-collection>
          <web-resource-name>Protected Area - Allow methods</web-resource-name>
          <url-pattern>/secured/*</url-pattern>
