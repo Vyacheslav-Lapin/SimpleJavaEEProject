@@ -21,8 +21,12 @@
     <title>GetGuns</title>
 </head>
 <body>
-
-<sql:setDataSource var="snapshot" dataSource="jdbc/TestDB"/>
+<%--dataSource="jdbc/TestDB"--%>
+<sql:setDataSource var="snapshot"
+                   driver="com.mysql.jdbc.Driver"
+                   user="root"
+                   password="Qwerty9000"
+                   url="jdbc:mysql://localhost:3306/gun-shop"/>
 
 <sql:query dataSource="${snapshot}" var="result">
     SELECT id, first_name, last_name, dob from Person;

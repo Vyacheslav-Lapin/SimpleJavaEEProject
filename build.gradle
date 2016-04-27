@@ -1,10 +1,8 @@
 apply plugin: "java"
 apply plugin: "war"
 
-tasks.withType(JavaCompile) {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -13,17 +11,21 @@ repositories {
 version = "1.0-SNAPSHOT"
 
 dependencies {
-    compile 'com.h2database:h2:+'
+
+    providedCompile 'mysql:mysql-connector-java:+'
+
+    // JSTL
     compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:+'
     compile 'org.glassfish.web:javax.servlet.jsp.jstl:+'
 
+    // Tomcat
     providedCompile 'org.apache.tomcat:tomcat-api:+'
     providedCompile 'org.apache.tomcat:tomcat-jsp-api:+'
 
     compile 'org.projectlombok:lombok:+'
 
-    compile 'org.slf4j:slf4j-api:+'
     compile 'ch.qos.logback:logback-classic:+'
 
+    testCompile 'com.h2database:h2:+'
     testCompile 'junit:junit:+'
 }
