@@ -136,8 +136,18 @@
              resources under the key "UserDatabase".  Any edits
              that are performed against this UserDatabase are immediately
              available for use by the Realm.  -->
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-               resourceName="UserDatabase"/>
+        <!--<Realm className="org.apache.catalina.realm.UserDatabaseRealm"-->
+               <!--resourceName="UserDatabase"/>-->
+
+          <Realm className="org.apache.catalina.realm.JDBCRealm"
+                 driverName="com.mysql.jdbc.Driver"
+                 connectionURL="jdbc:mysql://localhost:3306/gun-shop?user=root&amp;password=Qwerty9000"
+                 userTable="person"
+                 userNameCol="email"
+                 userCredCol="password"
+                 userRoleTable="roles"
+                 roleNameCol="name"/>
+
       </Realm>
 
       <Host name="localhost"  appBase="webapps"

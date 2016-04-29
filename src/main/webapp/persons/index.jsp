@@ -21,9 +21,6 @@
     <title>GetGuns</title>
 </head>
 <body>
-<sql:query dataSource="jdbc/TestDB" var="result">
-    SELECT id, first_name, last_name, dob from person;
-</sql:query>
 
 <table class="bordered">
     <tr>
@@ -33,6 +30,7 @@
         <th>Age</th>
     </tr>
 
+    <sql:query dataSource="jdbc/TestDB" var="result">SELECT id, first_name, last_name, dob FROM person;</sql:query>
     <c:forEach var="row" items="${result.rows}">
         <tr>
             <td>${row.id}</td>

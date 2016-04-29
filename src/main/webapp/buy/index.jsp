@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<jsp:useBean id="gun" class="model.Gun" scope="request"/>--%>
 <jsp:useBean id="gun" type="model.Gun" scope="request"/>
 <html>
 <head>
